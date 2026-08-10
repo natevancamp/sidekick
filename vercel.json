@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/todd-creek-farms-sellers",
+      "destination": "/todd-creek-farms/sellers",
+      "permanent": true
+    },
+    {
+      "source": "/todd-creek-farms-homes-for-sale",
+      "destination": "/todd-creek-farms/homes-for-sale",
+      "permanent": true
+    }
+  ]
 }
