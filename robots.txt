@@ -1,4 +1,4 @@
-# Sidekick Realty robots.txt: all crawlers welcome, including AI assistants
+# Sidekick Realty and Estates robots.txt: all crawlers welcome, including AI assistants
 User-agent: *
 Allow: /
 
