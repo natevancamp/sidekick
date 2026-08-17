@@ -105,19 +105,74 @@ details{border-bottom:1px solid var(--line);padding:18px 0}details summary{font-
   .note{opacity:.8;margin-top:26px;font-size:1.02rem}
   .bio-card{display:grid;gap:26px;align-items:center;grid-template-columns:1fr}
   @media(min-width:720px){.bio-card{grid-template-columns:200px 1fr}}
+  /* shared nav + hub */
+  .navtoggle{display:none}
+  .navburger{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:9px 14px;background:#fff}
+  .navburger:after{content:"\2261";font-size:1.15rem;line-height:1}
+  @media(min-width:1000px){.navburger{display:none}}
+  @media(max-width:999px){
+    .nav-in{flex-wrap:wrap;gap:10px}
+    .nav-links{display:none;order:3;flex-basis:100%;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:8px}
+    .navtoggle:checked ~ .nav-links{display:flex}
+    .nav-links a{padding:11px 2px;border-bottom:1px solid var(--line)}
+    .nav-cta{order:2}
+  }
+  @media(min-width:1000px){.nav-links{display:flex}}
+  .hero-photo{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center 62%;opacity:.3}
+  .hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(35,33,30,.93) 0%,rgba(38,35,32,.86) 46%,rgba(45,40,36,.62) 100%)}
+  .cards4{display:grid;gap:22px;grid-template-columns:1fr}
+  @media(min-width:640px){.cards4{grid-template-columns:1fr 1fr}}
+  @media(min-width:1060px){.cards4{grid-template-columns:repeat(4,1fr)}}
+  .c4{border:1px solid var(--line);border-radius:8px;padding:32px 26px;background:#fff;text-decoration:none;display:flex;flex-direction:column;transition:.2s}
+  .c4:hover{border-color:var(--brass);box-shadow:0 26px 54px -32px rgba(43,41,38,.5);transform:translateY(-2px)}
+  .c4 .num{font-family:'Fraunces',Georgia,serif;font-size:.9rem;color:var(--brass);letter-spacing:.16em;margin-bottom:16px}
+  .c4 h3{font-size:1.45rem;margin-bottom:10px;line-height:1.15}
+  .c4 p{color:var(--muted);font-size:.96rem;flex:1;margin-bottom:18px}
+  .c4 .go{color:var(--brass-d);font-weight:600;font-size:.93rem}
+  .picker{display:flex;flex-wrap:wrap;gap:12px}
+  .pk{border:1px solid var(--line);background:#fff;border-radius:100px;padding:13px 24px;font-size:1rem;font-weight:500;color:var(--ink);text-decoration:none;transition:.16s}
+  .pk:hover{border-color:var(--brass);color:var(--brass-d);background:#fff}
+  .reloc2{display:grid;gap:24px;grid-template-columns:1fr}
+  @media(min-width:820px){.reloc2{grid-template-columns:1fr 1fr}}
+  .rc{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:34px 30px;background:rgba(255,255,255,.04)}
+  .rc h3{color:#fff;font-size:1.5rem;margin:8px 0 12px}
+  .rc p{opacity:.85;margin-bottom:20px}
+  .tick{display:flex;gap:12px;align-items:flex-start;padding:8px 0;color:var(--muted);font-size:.98rem}
+  .tick:before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--brass);margin-top:9px}
+  .ink-sec .tick{color:rgba(247,242,232,.85)}
+  .twocol{display:grid;gap:8px 34px;grid-template-columns:1fr}
+  @media(min-width:700px){.twocol{grid-template-columns:1fr 1fr}}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:100px;padding:9px 18px;font-size:.93rem;color:var(--ink);font-weight:500}
+  .ink-sec .chip{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.2);color:var(--sand)}
+  .photo{width:100%;border-radius:10px;display:block;box-shadow:0 24px 50px -28px rgba(43,41,38,.55)}
+  .cap{color:var(--muted);font-size:.85rem;margin-top:10px}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:100px;padding:7px 16px;font-size:.85rem;color:var(--muted);background:#fff;margin-bottom:16px}
+  .steps5{display:grid;gap:18px;grid-template-columns:1fr;counter-reset:st}
+  @media(min-width:900px){.steps5{grid-template-columns:repeat(5,1fr)}}
+  .st{border:1px solid var(--line);border-radius:6px;padding:26px 20px;background:#fff;position:relative}
+  .st:before{counter-increment:st;content:counter(st);font-family:'Fraunces',Georgia,serif;font-size:1.6rem;color:var(--brass);display:block;margin-bottom:10px;line-height:1}
+  .st h3{font-size:1.05rem;margin-bottom:8px;line-height:1.25}
+  .st p{color:var(--muted);font-size:.92rem}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.8rem;opacity:.75;margin-top:14px}
 </style>
 </head>
 <body>
 <nav>
   <div class="nav-in">
     <a href="/" class="logo brand" aria-label="Sidekick Realty and Estates"></a>
+    <input type="checkbox" id="navtoggle" class="navtoggle">
+    <label for="navtoggle" class="navburger" aria-label="Open menu">Menu</label>
     <div class="nav-links">
-      <a href="/selling-an-inherited-house">Inherited House</a>
-      <a href="/probate-home-sale-colorado">Probate Sales</a>
-      <a href="/todd-creek-farms">Todd Creek Farms</a>
-      <a href="/">Rental Owners</a>
+      <a href="/">Home</a>
+      <a href="/todd-creek-farms/homes-for-sale">Buy</a>
+      <a href="/todd-creek-farms/sellers">Sell</a>
+      <a href="/todd-creek-farms">Todd Creek</a>
+      <a href="/relocation-to-colorado">Relocation</a>
+      <a href="/rental-vacant-properties">Rental &amp; Vacant</a>
+      <a href="/#about">About</a>
     </div>
-    <a href="#review" class="btn btn-brass nav-cta">Free Property Review</a>
+    <a href="/#talk" class="btn btn-brass nav-cta">Let's Talk</a>
   </div>
 </nav>
 
@@ -358,33 +413,40 @@ details{border-bottom:1px solid var(--line);padding:18px 0}details summary{font-
     <div class="foot-grid">
       <div>
         <a href="/" class="brand-foot" aria-label="Sidekick Realty and Estates"></a>
-        <p style="margin-top:14px;max-width:340px">Independent brokerage helping rental property owners and families settling estates across the Denver metro, and the neighborhood specialist for Todd Creek Farms acreage homes.</p>
+        <p style="margin-top:14px;max-width:360px">A Colorado real estate practice organized around situations rather than transactions: Todd Creek Farms, rental and vacant property, and relocation to and from Colorado.</p>
       </div>
       <div>
-        <strong style="color:#fff;display:block;margin-bottom:10px">Explore</strong>
-        <a href="/" style="display:block;margin-bottom:6px">Rental Property Owners</a>
-        <a href="/selling-an-inherited-house" style="display:block;margin-bottom:6px">Selling An Inherited House</a>
-        <a href="/probate-home-sale-colorado" style="display:block;margin-bottom:6px">Probate Home Sales</a>
-        <a href="/selling-an-inherited-house-with-siblings" style="display:block;margin-bottom:6px">Inherited House With Siblings</a>
-        <a href="/taxes-on-inherited-property-colorado" style="display:block;margin-bottom:6px">Inherited Property Taxes</a>
-        <a href="/sell-inherited-house-as-is-colorado" style="display:block;margin-bottom:6px">Selling As-Is</a>
-        <a href="/todd-creek-farms" style="display:block;margin-bottom:6px">Todd Creek Farms</a>
+        <strong style="color:#fff;display:block;margin-bottom:10px">Where you fit</strong>
+        <a href="/todd-creek-farms" style="display:block;margin-bottom:6px">Todd Creek</a>
+        <a href="/rental-vacant-properties" style="display:block;margin-bottom:6px">Rental &amp; Vacant Properties</a>
+        <a href="/relocation-to-colorado" style="display:block;margin-bottom:6px">Moving To Colorado</a>
+        <a href="/relocating-from-colorado" style="display:block;margin-bottom:6px">Moving From Colorado</a>
+        <a href="/selling-an-inherited-house" style="display:block;margin-bottom:6px">Inherited &amp; Estate</a>
+        <a href="/todd-creek-farms/homes-for-sale" style="display:block;margin-bottom:6px">Buy</a>
+        <a href="/todd-creek-farms/sellers" style="display:block;margin-bottom:6px">Sell</a>
         <a href="/blog" style="display:block">Guides</a>
       </div>
       <div>
         <strong style="color:#fff;display:block;margin-bottom:10px">Contact</strong>
-        <p>Nathan Van Camp, Owner / Employing Broker</p>
-        <p>&#128222; 303-647-4188</p>
-        <p>&#9993;&#65039; nathan@sidekickrealty.com</p>
-        <p style="margin-top:6px">10381 E 142nd Ave, Brighton, CO 80602</p>
-        <p style="margin-top:10px"><a href="https://www.homes.com/real-estate-agents/nathan-vancamp/n3zchgn/" target="_blank" rel="noopener noreferrer">Find Nathan on Homes.com</a></p>
+        <p>Nathan Van Camp</p>
+        <p style="opacity:.8">Owner and Employing Broker</p>
+        <p style="margin-top:8px">Sidekick Realty and Estates</p>
+        <p style="margin-top:8px">&#128222; <a href="tel:+13036474188">303-647-4188</a></p>
+        <p>&#9993;&#65039; <a href="mailto:nathan@sidekickrealty.com">nathan@sidekickrealty.com</a></p>
+        <p style="margin-top:6px">10381 E 142nd Ave<br>Brighton, CO 80602</p>
+        <p style="margin-top:10px"><a href="https://www.homes.com/real-estate-agents/nathan-vancamp/n3zchgn/" target="_blank" rel="noopener noreferrer">Homes.com profile</a></p>
       </div>
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Sidekick Realty and Estates. All rights reserved.</span>
-      <span>Equal Housing Opportunity &middot; Licensed CO Real Estate Broker ER.100067676</span>
+      <span>Licensed Colorado Real Estate Broker &middot; License ER.100067676</span>
     </div>
-    <p style="font-size:.75rem;opacity:.55;margin-top:18px;line-height:1.6">Information is believed to be accurate but is not guaranteed and is not legal or tax advice. Sale prices and market statistics are drawn from publicly available records and should not be considered an appraisal. If your property is currently listed with another brokerage, this is not intended as a solicitation.</p>
+    <div class="foot-legal">
+      <span>&#8962; Equal Housing Opportunity</span>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </div>
+    <p style="font-size:.75rem;opacity:.55;margin-top:14px;line-height:1.6">Information is believed to be accurate but is not guaranteed and is not legal or tax advice. Sale prices and market statistics are drawn from publicly available records and should not be considered an appraisal. If your property is currently listed with another brokerage, this is not intended as a solicitation.</p>
   </div>
 </footer>
 <script type="application/ld+json">
